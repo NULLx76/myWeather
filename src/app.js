@@ -3,6 +3,37 @@ var ajax = require('ajax');
 var Vector2 = require('vector2');
 var cityName = 'Aerdenhout';
 
+var sBody;
+var latitude, longitude;
+ 
+function showPosition(position){
+	console.log("Geolocation SUCCESS");
+	
+	latitude = position.coords.latitude;
+	longitude = position.coords.longitude;
+  
+  sBody = 'Lat: ' + latitude + 'Long: ' + longitude;
+  
+  console.log(latitude);
+  console.log(longitude);
+  
+}
+ 
+function geoFail(){
+	console.log("Geolocation FAILED");
+  sBody = 'No location available';
+}
+ 
+function getLocation(){
+	if(navigator && navigator.geolocation){
+		navigator.geolocation.getCurrentPosition(showPosition, geoFail, {maximumAge:60000, timeout:5000, enableHighAccuracy:true});
+	}
+}
+ 
+getLocation();
+ 
+console.log('Body = ' + sBody);
+
 var parseFeed = function(data, quantity) {
   var items = [];
   for(var i = 0; i < quantity; i++) {
@@ -47,7 +78,8 @@ splashWindow.show();
 // Make request to openweathermap.org
 ajax(
   {
-    url:'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName,
+    //url:'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName,
+    url:'http://api.openweathermap.org/data/2.5/forecast?lat=' +  latitude + '&lon=' + longitude,
     type:'json'
   },
   function(data) {
