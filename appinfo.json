@@ -1,10 +1,10 @@
 {
     "appKeys": {},
     "capabilities": [
-        ""
+        "location"
     ],
-    "companyName": "Pebble",
-    "longName": "Pebble.js Tutorial 3-2",
+    "companyName": "xirion",
+    "longName": "myWeather",
     "projectType": "pebblejs",
     "resources": {
         "media": [
@@ -31,7 +31,7 @@
             }
         ]
     },
-    "shortName": "P.js Tut 3-2",
+    "shortName": "myWeather",
     "uuid": "2d0c2b6f-78d4-4625-ba92-cf6ac7831cd0",
     "versionCode": 1,
     "versionLabel": "1.0",

@@ -1,6 +1,7 @@
 var UI = require('ui');
 var ajax = require('ajax');
 var Vector2 = require('vector2');
+var cityName = 'Aerdenhout';
 
 var parseFeed = function(data, quantity) {
   var items = [];
@@ -46,7 +47,7 @@ splashWindow.show();
 // Make request to openweathermap.org
 ajax(
   {
-    url:'http://api.openweathermap.org/data/2.5/forecast?q=London',
+    url:'http://api.openweathermap.org/data/2.5/forecast?q=' + cityName,
     type:'json'
   },
   function(data) {
